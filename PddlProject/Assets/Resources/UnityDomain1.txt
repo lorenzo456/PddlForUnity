@@ -1,0 +1,26 @@
+﻿(define (domain domain4)
+    (:requirements
+        :strips :equality :typing
+    )
+    (:predicates
+    (isOnLocation ?r ?l)
+    (door ?l1 ?l2)
+    )
+
+(:action moveRobot
+    :parameters
+        (?r ?l1 ?l2)
+    :precondition
+        (and
+        (isOnLocation ?r ?l1)
+        (not(isOnLocation ?r ?l2))
+        (door ?l1 ?l2)
+        )
+    :effect
+        (and
+        (not(isOnLocation ?r ?l1))
+        (isOnLocation ?r ?l2)
+        )
+)
+
+)

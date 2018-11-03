@@ -1,0 +1,25 @@
+﻿(define (problem problem4)
+(:domain domain4)
+
+    (:objects
+    Robot
+    
+    location1 location2 location3 location4 location5
+    )
+    
+    (:init
+    (isOnLocation Robot location1)
+    (door location1 location2)
+    (door location2 location3)
+    (door location3 location4)
+    (door location4 location5)
+    )
+    
+    (:goal
+    (and
+    (isOnLocation Robot location5)
+    )
+    )
+)
+
+

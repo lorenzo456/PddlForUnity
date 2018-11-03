@@ -1,0 +1,33 @@
+﻿(define (problem problem4)
+(:domain domain4)
+
+    (:objects
+    ;robot
+    Robot -robot
+    
+    ;interactable objects
+    sphere1 sphere2 -interactable
+    
+    ;locations
+    location1 location2 location3 location4 location5 -location
+    )
+    
+    (:init
+    (isOnLocation Robot location1)
+    (isOnLocation sphere1 location3)
+    (door location1 location2)
+    (door location2 location3)
+    (door location3 location4)
+    (door location4 location5)
+    (door location5 location1)
+    )
+    
+    (:goal
+    (and
+    (isGrabbed Robot sphere1)
+    (isOnLocation Robot location5)
+    )
+    )
+)
+
+

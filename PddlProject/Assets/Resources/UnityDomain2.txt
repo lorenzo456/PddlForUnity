@@ -1,0 +1,42 @@
+﻿(define (domain domain4)
+    (:requirements
+        :strips :equality :typing
+    )
+    (:predicates
+    (isOnLocation ?r ?l)
+    (door ?l1 ?l2)
+    (isGrabbed ?r ?o)
+    )
+
+(:action moveRobot
+    :parameters
+        (?r ?l1 ?l2 )
+    :precondition
+        (and
+        (isOnLocation ?r ?l1)
+        (not(isOnLocation ?r ?l2))
+        (door ?l1 ?l2)
+        )
+    :effect
+        (and
+        (not(isOnLocation ?r ?l1))
+        (isOnLocation ?r ?l2)
+        )
+)
+
+(:action pickupobject
+    :parameters
+        (?r ?o  ?l )
+    :precondition
+        (and
+        (not(isGrabbed ?r ?o))
+        (isOnLocation ?r ?l)
+        (isOnLocation ?o ?l)
+        )
+    :effect
+        (and
+        (isGrabbed ?r ?o)
+        )
+)
+
+)
